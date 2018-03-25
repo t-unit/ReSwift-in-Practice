@@ -20,12 +20,6 @@ struct NetworkFetcher {
     let session: URLSession
     let decoder: JSONDecoder
 
-    init(session: URLSession, decoder: JSONDecoder) {
-
-        self.session = session
-        self.decoder = decoder
-    }
-
     @discardableResult
     func fetch<T>(request: URLRequest, completion: @escaping (Result<T>) -> Void) throws -> URLSessionDataTask where T: Decodable {
 
