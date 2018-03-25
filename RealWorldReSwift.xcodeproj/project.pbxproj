@@ -15,6 +15,14 @@
 		D287BAAE2067EFF700E79715 /* RealWorldReSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAAD2067EFF700E79715 /* RealWorldReSwiftTests.swift */; };
 		D287BAD32067F0FA00E79715 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D287BAC42067F0F300E79715 /* ReSwift.framework */; };
 		D287BAD42067F0FA00E79715 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D287BAC42067F0F300E79715 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D287BADB2067F1E400E79715 /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAD92067F1E400E79715 /* NetworkFetcher.swift */; };
+		D287BADC2067F1E400E79715 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BADA2067F1E400E79715 /* Result.swift */; };
+		D287BADF2067F27300E79715 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BADE2067F27300E79715 /* PlacesService.swift */; };
+		D287BAF42067F3CE00E79715 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAEE2067F3CE00E79715 /* Place.swift */; };
+		D287BAF52067F3CE00E79715 /* PriceLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAEF2067F3CE00E79715 /* PriceLevel.swift */; };
+		D287BAF62067F3CF00E79715 /* PlacesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */; };
+		D287BAF72067F3CF00E79715 /* CLLocationCoordinate2D+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */; };
+		D287BAF82067F3CF00E79715 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF22067F3CE00E79715 /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +124,14 @@
 		D287BAAD2067EFF700E79715 /* RealWorldReSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealWorldReSwiftTests.swift; sourceTree = "<group>"; };
 		D287BAAF2067EFF700E79715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287BAB82067F0F300E79715 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = Carthage/Checkouts/ReSwift/ReSwift.xcodeproj; sourceTree = "<group>"; };
+		D287BAD92067F1E400E79715 /* NetworkFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
+		D287BADA2067F1E400E79715 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D287BADE2067F27300E79715 /* PlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
+		D287BAEE2067F3CE00E79715 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		D287BAEF2067F3CE00E79715 /* PriceLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceLevel.swift; sourceTree = "<group>"; };
+		D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesSearchResult.swift; sourceTree = "<group>"; };
+		D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Codable.swift"; sourceTree = "<group>"; };
+		D287BAF22067F3CE00E79715 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +175,8 @@
 		D287BA972067EFF500E79715 /* RealWorldReSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D287BAE02067F2E500E79715 /* Models */,
+				D287BAD82067F1D600E79715 /* Networking */,
 				D287BA982067EFF500E79715 /* AppDelegate.swift */,
 				D287BA9A2067EFF500E79715 /* ViewController.swift */,
 				D287BA9C2067EFF500E79715 /* Main.storyboard */,
@@ -191,6 +209,28 @@
 				D287BAD22067F0F300E79715 /* SwiftLintIntegration.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D287BAD82067F1D600E79715 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D287BAD92067F1E400E79715 /* NetworkFetcher.swift */,
+				D287BADE2067F27300E79715 /* PlacesService.swift */,
+				D287BADA2067F1E400E79715 /* Result.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D287BAE02067F2E500E79715 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */,
+				D287BAF22067F3CE00E79715 /* Geometry.swift */,
+				D287BAEE2067F3CE00E79715 /* Place.swift */,
+				D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */,
+				D287BAEF2067F3CE00E79715 /* PriceLevel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,8 +401,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D287BAF62067F3CF00E79715 /* PlacesSearchResult.swift in Sources */,
+				D287BAF52067F3CE00E79715 /* PriceLevel.swift in Sources */,
+				D287BAF72067F3CF00E79715 /* CLLocationCoordinate2D+Codable.swift in Sources */,
 				D287BA9B2067EFF500E79715 /* ViewController.swift in Sources */,
+				D287BADF2067F27300E79715 /* PlacesService.swift in Sources */,
+				D287BADB2067F1E400E79715 /* NetworkFetcher.swift in Sources */,
+				D287BAF42067F3CE00E79715 /* Place.swift in Sources */,
+				D287BADC2067F1E400E79715 /* Result.swift in Sources */,
 				D287BA992067EFF500E79715 /* AppDelegate.swift in Sources */,
+				D287BAF82067F3CF00E79715 /* Geometry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
