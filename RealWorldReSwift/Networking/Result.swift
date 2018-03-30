@@ -12,4 +12,20 @@ enum Result<T> {
     
     case success(T)
     case failure(Error)
+
+    var error: Error? {
+
+        switch self {
+        case .failure(let error): return error
+        default: return nil
+        }
+    }
+
+    var value: T? {
+
+        switch self {
+        case .success(let value): return value
+        default: return nil
+        }
+    }
 }

@@ -15,13 +15,19 @@ enum NetworkFetcherError: Error {
     case content
 }
 
-struct NetworkFetcher {
+protocol NetworkFetching {
+
+    @discardableResult
+    func fetch<T>(request: URLRequest, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask where T: Decodable
+}
+
+struct NetworkFetcher: NetworkFetching {
 
     let session: URLSession
     let decoder: JSONDecoder
 
     @discardableResult
-    func fetch<T>(request: URLRequest, completion: @escaping (Result<T>) -> Void) throws -> URLSessionDataTask where T: Decodable {
+    func fetch<T>(request: URLRequest, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask where T: Decodable {
 
         let task = session.dataTask(with: request) { (optionalData, response, error) in
             

@@ -10,11 +10,16 @@
 import Foundation
 import CoreLocation
 
-struct PlacesService {
+protocol PlacesServing {
+
+    func search(coordinates: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void)
+}
+
+struct PlacesService: PlacesServing {
 
     let locale: Locale
     let apiKey: String
-    let fetcher: NetworkFetcher
+    let fetcher: NetworkFetching
 
     func search(coordinates: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void) {
 
@@ -25,7 +30,7 @@ struct PlacesService {
                 locale: locale,
                 apiKey: apiKey
             )
-            try fetcher.fetch(request: request, completion: completion)
+            fetcher.fetch(request: request, completion: completion)
         } catch {
             completion(Result.failure(error))
         }

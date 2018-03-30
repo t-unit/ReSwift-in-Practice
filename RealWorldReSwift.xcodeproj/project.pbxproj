@@ -12,7 +12,6 @@
 		D287BA9E2067EFF500E79715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287BA9C2067EFF500E79715 /* Main.storyboard */; };
 		D287BAA02067EFF700E79715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287BA9F2067EFF700E79715 /* Assets.xcassets */; };
 		D287BAA32067EFF700E79715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287BAA12067EFF700E79715 /* LaunchScreen.storyboard */; };
-		D287BAAE2067EFF700E79715 /* RealWorldReSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAAD2067EFF700E79715 /* RealWorldReSwiftTests.swift */; };
 		D287BAD32067F0FA00E79715 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D287BAC42067F0F300E79715 /* ReSwift.framework */; };
 		D287BAD42067F0FA00E79715 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D287BAC42067F0F300E79715 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D287BADB2067F1E400E79715 /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAD92067F1E400E79715 /* NetworkFetcher.swift */; };
@@ -23,6 +22,13 @@
 		D287BAF62067F3CF00E79715 /* PlacesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */; };
 		D287BAF72067F3CF00E79715 /* CLLocationCoordinate2D+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */; };
 		D287BAF82067F3CF00E79715 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BAF22067F3CE00E79715 /* Geometry.swift */; };
+		D287BAFB2067F77400E79715 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = D287BAFA2067F77400E79715 /* Cartfile */; };
+		D287BB152067F80400E79715 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D287BB0B2067F7F000E79715 /* Nimble.framework */; };
+		D287BB172067F81F00E79715 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D287BB0B2067F7F000E79715 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D287BB192067F83E00E79715 /* NetworkFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */; };
+		D287BB1D2067F8E600E79715 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB1C2067F8E600E79715 /* MockURLSession.swift */; };
+		D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */; };
+		D287BB2120681B7500E79715 /* FakeNetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +102,55 @@
 			remoteGlobalIDString = 625E66821C1FF97E0027C288;
 			remoteInfo = "ReSwift-iOS";
 		};
+		D287BB062067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-macOS";
+		};
+		D287BB082067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-macOSTests";
+		};
+		D287BB0A2067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		D287BB0C2067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		D287BB0E2067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F5DF1551BDCA0CE00C3A531;
+			remoteInfo = "Nimble-tvOS";
+		};
+		D287BB102067F7F000E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F5DF15E1BDCA0CE00C3A531;
+			remoteInfo = "Nimble-tvOSTests";
+		};
+		D287BB122067F7F800E79715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F1A74281940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +165,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D287BB162067F80A00E79715 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D287BB172067F81F00E79715 /* Nimble.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +187,6 @@
 		D287BAA22067EFF700E79715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D287BAA42067EFF700E79715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287BAA92067EFF700E79715 /* RealWorldReSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealWorldReSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D287BAAD2067EFF700E79715 /* RealWorldReSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealWorldReSwiftTests.swift; sourceTree = "<group>"; };
 		D287BAAF2067EFF700E79715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287BAB82067F0F300E79715 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = Carthage/Checkouts/ReSwift/ReSwift.xcodeproj; sourceTree = "<group>"; };
 		D287BAD92067F1E400E79715 /* NetworkFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
@@ -132,6 +197,12 @@
 		D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesSearchResult.swift; sourceTree = "<group>"; };
 		D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Codable.swift"; sourceTree = "<group>"; };
 		D287BAF22067F3CE00E79715 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		D287BAFA2067F77400E79715 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Carthage/Checkouts/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
+		D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcherTests.swift; sourceTree = "<group>"; };
+		D287BB1C2067F8E600E79715 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesServiceTests.swift; sourceTree = "<group>"; };
+		D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D287BB152067F80400E79715 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,10 +228,13 @@
 		D287BA8C2067EFF500E79715 = {
 			isa = PBXGroup;
 			children = (
+				D287BAFA2067F77400E79715 /* Cartfile */,
+				D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */,
 				D287BAB82067F0F300E79715 /* ReSwift.xcodeproj */,
 				D287BA972067EFF500E79715 /* RealWorldReSwift */,
 				D287BAAC2067EFF700E79715 /* RealWorldReSwiftTests */,
 				D287BA962067EFF500E79715 /* Products */,
+				D287BB142067F80400E79715 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,8 +265,11 @@
 		D287BAAC2067EFF700E79715 /* RealWorldReSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				D287BAAD2067EFF700E79715 /* RealWorldReSwiftTests.swift */,
+				D287BB1B2067F8DA00E79715 /* Mocks */,
+				D287BB1A2067F8C000E79715 /* Fakes */,
 				D287BAAF2067EFF700E79715 /* Info.plist */,
+				D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */,
+				D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */,
 			);
 			path = RealWorldReSwiftTests;
 			sourceTree = "<group>";
@@ -233,6 +311,42 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D287BAFD2067F7F000E79715 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D287BB072067F7F000E79715 /* Nimble.framework */,
+				D287BB092067F7F000E79715 /* NimbleTests.xctest */,
+				D287BB0B2067F7F000E79715 /* Nimble.framework */,
+				D287BB0D2067F7F000E79715 /* NimbleTests.xctest */,
+				D287BB0F2067F7F000E79715 /* Nimble.framework */,
+				D287BB112067F7F000E79715 /* NimbleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D287BB142067F80400E79715 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D287BB1A2067F8C000E79715 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		D287BB1B2067F8DA00E79715 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D287BB1C2067F8E600E79715 /* MockURLSession.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,10 +376,12 @@
 				D287BAA52067EFF700E79715 /* Sources */,
 				D287BAA62067EFF700E79715 /* Frameworks */,
 				D287BAA72067EFF700E79715 /* Resources */,
+				D287BB162067F80A00E79715 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D287BB132067F7F800E79715 /* PBXTargetDependency */,
 				D287BAAB2067EFF700E79715 /* PBXTargetDependency */,
 			);
 			name = RealWorldReSwiftTests;
@@ -288,6 +404,7 @@
 					};
 					D287BAA82067EFF700E79715 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						TestTargetID = D287BA942067EFF500E79715;
 					};
 				};
@@ -304,6 +421,10 @@
 			productRefGroup = D287BA962067EFF500E79715 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = D287BAFD2067F7F000E79715 /* Products */;
+					ProjectRef = D287BAFC2067F7F000E79715 /* Nimble.xcodeproj */;
+				},
 				{
 					ProductGroup = D287BAB92067F0F300E79715 /* Products */;
 					ProjectRef = D287BAB82067F0F300E79715 /* ReSwift.xcodeproj */;
@@ -374,6 +495,48 @@
 			remoteRef = D287BAD12067F0F300E79715 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D287BB072067F7F000E79715 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = D287BB062067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D287BB092067F7F000E79715 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = D287BB082067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D287BB0B2067F7F000E79715 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = D287BB0A2067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D287BB0D2067F7F000E79715 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = D287BB0C2067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D287BB0F2067F7F000E79715 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = D287BB0E2067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D287BB112067F7F000E79715 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = D287BB102067F7F000E79715 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -383,6 +546,7 @@
 			files = (
 				D287BAA32067EFF700E79715 /* LaunchScreen.storyboard in Resources */,
 				D287BAA02067EFF700E79715 /* Assets.xcassets in Resources */,
+				D287BAFB2067F77400E79715 /* Cartfile in Resources */,
 				D287BA9E2067EFF500E79715 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +582,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D287BAAE2067EFF700E79715 /* RealWorldReSwiftTests.swift in Sources */,
+				D287BB1D2067F8E600E79715 /* MockURLSession.swift in Sources */,
+				D287BB2120681B7500E79715 /* FakeNetworkFetcher.swift in Sources */,
+				D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */,
+				D287BB192067F83E00E79715 /* NetworkFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +601,11 @@
 			isa = PBXTargetDependency;
 			name = "ReSwift-iOS";
 			targetProxy = D287BAD52067F0FA00E79715 /* PBXContainerItemProxy */;
+		};
+		D287BB132067F7F800E79715 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Nimble-iOS";
+			targetProxy = D287BB122067F7F800E79715 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -614,6 +786,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ92W4V2G9;
 				INFOPLIST_FILE = RealWorldReSwiftTests/Info.plist;
@@ -624,6 +797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ottenweller.RealWorldReSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealWorldReSwift.app/RealWorldReSwift";
@@ -635,6 +809,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ92W4V2G9;
 				INFOPLIST_FILE = RealWorldReSwiftTests/Info.plist;
