@@ -10,6 +10,8 @@
 		D2562EE1206E699600A54E13 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EE0206E699600A54E13 /* AppState.swift */; };
 		D2562EF0206E6A2F00A54E13 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EEF206E6A2F00A54E13 /* AppStore.swift */; };
 		D2562EF2206E6A4600A54E13 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF1206E6A4600A54E13 /* AppReducer.swift */; };
+		D2562EF4206E7B2400A54E13 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF3206E7B2400A54E13 /* Actions.swift */; };
+		D2562EF6206E847B00A54E13 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */; };
 		D287BA992067EFF500E79715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BA982067EFF500E79715 /* AppDelegate.swift */; };
 		D287BA9B2067EFF500E79715 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BA9A2067EFF500E79715 /* ViewController.swift */; };
 		D287BA9E2067EFF500E79715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287BA9C2067EFF500E79715 /* Main.storyboard */; };
@@ -185,6 +187,8 @@
 		D2562EE0206E699600A54E13 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D2562EEF206E6A2F00A54E13 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		D2562EF1206E6A4600A54E13 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		D2562EF3206E7B2400A54E13 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		D287BA952067EFF500E79715 /* RealWorldReSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealWorldReSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287BA982067EFF500E79715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287BA9A2067EFF500E79715 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		D287BA972067EFF500E79715 /* RealWorldReSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D2562EF3206E7B2400A54E13 /* Actions.swift */,
 				D287BA982067EFF500E79715 /* AppDelegate.swift */,
 				D2562EF1206E6A4600A54E13 /* AppReducer.swift */,
 				D2562EE0206E699600A54E13 /* AppState.swift */,
@@ -266,6 +271,7 @@
 				D287BA9C2067EFF500E79715 /* Main.storyboard */,
 				D287BAE02067F2E500E79715 /* Models */,
 				D287BAD82067F1D600E79715 /* Networking */,
+				D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */,
 				D287BA9A2067EFF500E79715 /* ViewController.swift */,
 			);
 			path = RealWorldReSwift;
@@ -585,8 +591,10 @@
 				D2562EE1206E699600A54E13 /* AppState.swift in Sources */,
 				D287BAF42067F3CE00E79715 /* Place.swift in Sources */,
 				D287BADC2067F1E400E79715 /* Result.swift in Sources */,
+				D2562EF4206E7B2400A54E13 /* Actions.swift in Sources */,
 				D287BA992067EFF500E79715 /* AppDelegate.swift in Sources */,
 				D287BAF82067F3CF00E79715 /* Geometry.swift in Sources */,
+				D2562EF6206E847B00A54E13 /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,5 +10,9 @@ import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
 
+    if let setPlaces = action as? SetPlacesAction {
+        return AppState(places: setPlaces.places)
+    }
+
     return AppState(places: nil)
 }
