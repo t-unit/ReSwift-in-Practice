@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D229798820710C3100026385 /* SimpleMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229798720710C3100026385 /* SimpleMiddleware.swift */; };
+		D229799720710D5700026385 /* SimpleMiddlewareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229799620710D5700026385 /* SimpleMiddlewareTests.swift */; };
 		D2562EE1206E699600A54E13 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EE0206E699600A54E13 /* AppState.swift */; };
 		D2562EF0206E6A2F00A54E13 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EEF206E6A2F00A54E13 /* AppStore.swift */; };
 		D2562EF2206E6A4600A54E13 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF1206E6A4600A54E13 /* AppReducer.swift */; };
@@ -184,6 +186,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D229798720710C3100026385 /* SimpleMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMiddleware.swift; sourceTree = "<group>"; };
+		D229799620710D5700026385 /* SimpleMiddlewareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMiddlewareTests.swift; sourceTree = "<group>"; };
 		D2562EE0206E699600A54E13 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D2562EEF206E6A2F00A54E13 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		D2562EF1206E6A4600A54E13 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				D287BAA42067EFF700E79715 /* Info.plist */,
 				D287BAA12067EFF700E79715 /* LaunchScreen.storyboard */,
 				D287BA9C2067EFF500E79715 /* Main.storyboard */,
+				D229798720710C3100026385 /* SimpleMiddleware.swift */,
 				D287BAE02067F2E500E79715 /* Models */,
 				D287BAD82067F1D600E79715 /* Networking */,
 				D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */,
@@ -285,6 +290,7 @@
 				D287BB1B2067F8DA00E79715 /* Mocks */,
 				D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */,
 				D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */,
+				D229799620710D5700026385 /* SimpleMiddlewareTests.swift */,
 			);
 			path = RealWorldReSwiftTests;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				D287BADB2067F1E400E79715 /* NetworkFetcher.swift in Sources */,
 				D2562EF2206E6A4600A54E13 /* AppReducer.swift in Sources */,
 				D2562EE1206E699600A54E13 /* AppState.swift in Sources */,
+				D229798820710C3100026385 /* SimpleMiddleware.swift in Sources */,
 				D287BAF42067F3CE00E79715 /* Place.swift in Sources */,
 				D287BADC2067F1E400E79715 /* Result.swift in Sources */,
 				D2562EF4206E7B2400A54E13 /* Actions.swift in Sources */,
@@ -605,6 +612,7 @@
 				D287BB1D2067F8E600E79715 /* MockURLSession.swift in Sources */,
 				D287BB2120681B7500E79715 /* FakeNetworkFetcher.swift in Sources */,
 				D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */,
+				D229799720710D5700026385 /* SimpleMiddlewareTests.swift in Sources */,
 				D287BB192067F83E00E79715 /* NetworkFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

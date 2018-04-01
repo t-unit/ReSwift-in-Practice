@@ -10,4 +10,7 @@ import ReSwift
 
 typealias AppStore = Store<AppState>
 
-let appStore = AppStore(reducer: appReducer, state: nil)
+let appStore = AppStore(
+    reducer: appReducer,
+    state: nil
+)
