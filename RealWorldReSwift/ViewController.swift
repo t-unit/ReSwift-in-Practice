@@ -11,7 +11,7 @@ import ReSwift
 
 class ViewController: UIViewController {
 
-    var store: AppStore = appStore
+    var store: AppStore!
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -22,16 +22,19 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
         super.viewWillAppear(animated)
         store.subscribe(self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(animated)
-        appStore.dispatch(PlacesAction.fetch)
+        store.dispatch(PlacesAction.fetch)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+
         super.viewWillDisappear(animated)
         store.unsubscribe(self)
     }
@@ -54,6 +57,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "place", for: indexPath) as! PlaceTableViewCell
         let place = data[indexPath.row]
 
