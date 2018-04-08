@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        appStore.dispatch(fetchPlaces)
+        appStore.dispatch(PlacesAction.fetch)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

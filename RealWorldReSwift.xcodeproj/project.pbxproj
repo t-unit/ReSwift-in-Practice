@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		D229798820710C3100026385 /* SimpleMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229798720710C3100026385 /* SimpleMiddleware.swift */; };
 		D229799720710D5700026385 /* SimpleMiddlewareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229799620710D5700026385 /* SimpleMiddlewareTests.swift */; };
+		D22979992071156600026385 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22979982071156600026385 /* Middleware.swift */; };
 		D2562EE1206E699600A54E13 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EE0206E699600A54E13 /* AppState.swift */; };
 		D2562EF0206E6A2F00A54E13 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EEF206E6A2F00A54E13 /* AppStore.swift */; };
 		D2562EF2206E6A4600A54E13 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF1206E6A4600A54E13 /* AppReducer.swift */; };
 		D2562EF4206E7B2400A54E13 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF3206E7B2400A54E13 /* Actions.swift */; };
 		D2562EF6206E847B00A54E13 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */; };
+		D273610D207A44BF00172F14 /* MiddlewareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273610C207A44BF00172F14 /* MiddlewareTests.swift */; };
+		D273611C207A467B00172F14 /* FakePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273611B207A467B00172F14 /* FakePlacesService.swift */; };
 		D287BA992067EFF500E79715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BA982067EFF500E79715 /* AppDelegate.swift */; };
 		D287BA9B2067EFF500E79715 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BA9A2067EFF500E79715 /* ViewController.swift */; };
 		D287BA9E2067EFF500E79715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287BA9C2067EFF500E79715 /* Main.storyboard */; };
@@ -188,11 +191,14 @@
 /* Begin PBXFileReference section */
 		D229798720710C3100026385 /* SimpleMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMiddleware.swift; sourceTree = "<group>"; };
 		D229799620710D5700026385 /* SimpleMiddlewareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMiddlewareTests.swift; sourceTree = "<group>"; };
+		D22979982071156600026385 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		D2562EE0206E699600A54E13 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D2562EEF206E6A2F00A54E13 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		D2562EF1206E6A4600A54E13 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		D2562EF3206E7B2400A54E13 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		D273610C207A44BF00172F14 /* MiddlewareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddlewareTests.swift; sourceTree = "<group>"; };
+		D273611B207A467B00172F14 /* FakePlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePlacesService.swift; sourceTree = "<group>"; };
 		D287BA952067EFF500E79715 /* RealWorldReSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealWorldReSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287BA982067EFF500E79715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287BA9A2067EFF500E79715 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -273,10 +279,11 @@
 				D287BAA42067EFF700E79715 /* Info.plist */,
 				D287BAA12067EFF700E79715 /* LaunchScreen.storyboard */,
 				D287BA9C2067EFF500E79715 /* Main.storyboard */,
-				D229798720710C3100026385 /* SimpleMiddleware.swift */,
+				D22979982071156600026385 /* Middleware.swift */,
 				D287BAE02067F2E500E79715 /* Models */,
 				D287BAD82067F1D600E79715 /* Networking */,
 				D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */,
+				D229798720710C3100026385 /* SimpleMiddleware.swift */,
 				D287BA9A2067EFF500E79715 /* ViewController.swift */,
 			);
 			path = RealWorldReSwift;
@@ -287,6 +294,7 @@
 			children = (
 				D287BB1A2067F8C000E79715 /* Fakes */,
 				D287BAAF2067EFF700E79715 /* Info.plist */,
+				D273610C207A44BF00172F14 /* MiddlewareTests.swift */,
 				D287BB1B2067F8DA00E79715 /* Mocks */,
 				D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */,
 				D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */,
@@ -356,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */,
+				D273611B207A467B00172F14 /* FakePlacesService.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 				D287BA992067EFF500E79715 /* AppDelegate.swift in Sources */,
 				D287BAF82067F3CF00E79715 /* Geometry.swift in Sources */,
 				D2562EF6206E847B00A54E13 /* PlaceTableViewCell.swift in Sources */,
+				D22979992071156600026385 /* Middleware.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,8 +620,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D287BB1D2067F8E600E79715 /* MockURLSession.swift in Sources */,
+				D273611C207A467B00172F14 /* FakePlacesService.swift in Sources */,
 				D287BB2120681B7500E79715 /* FakeNetworkFetcher.swift in Sources */,
 				D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */,
+				D273610D207A44BF00172F14 /* MiddlewareTests.swift in Sources */,
 				D229799720710D5700026385 /* SimpleMiddlewareTests.swift in Sources */,
 				D287BB192067F83E00E79715 /* NetworkFetcherTests.swift in Sources */,
 			);
