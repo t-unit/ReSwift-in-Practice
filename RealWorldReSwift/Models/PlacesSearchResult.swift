@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct PlacesSearchResultError: Error {
+
+    let status: String
+}
+
 struct PlacesSearchResult: Decodable {
 
     let results: [Place]

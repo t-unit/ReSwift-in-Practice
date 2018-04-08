@@ -30,7 +30,22 @@ struct PlacesService: PlacesServing {
                 locale: locale,
                 apiKey: apiKey
             )
-            fetcher.fetch(request: request, completion: completion)
+            fetcher.fetch(request: request) { (result: Result<PlacesSearchResult>) in
+
+                switch result {
+                case .failure:
+                    completion(result)
+                case .success(let searchResult):
+
+                    if searchResult.status == "OK" {
+                        completion(.success(searchResult))
+                    } else {
+                        let error = PlacesSearchResultError(status: searchResult.status)
+                        completion(.failure(error))
+                    }
+                }
+
+            }
         } catch {
             completion(Result.failure(error))
         }

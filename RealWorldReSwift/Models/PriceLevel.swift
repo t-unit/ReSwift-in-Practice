@@ -21,16 +21,11 @@ extension PriceLevel: CustomStringConvertible {
 
     var description: String {
         switch self {
-        case .free:
-            return "free"
-        case .cheap:
-            return "cheap"
-        case .moderat:
-            return "moderat"
-        case .expensive:
-            return "expensive"
-        case .veryExpensive:
-            return "very expensive"
+        case .free: return "free"
+        case .cheap: return "cheap"
+        case .moderat: return "moderat"
+        case .expensive: return "expensive"
+        case .veryExpensive: return "very expensive"
         }
     }
 }

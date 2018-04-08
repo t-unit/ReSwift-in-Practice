@@ -19,7 +19,7 @@ extension CLLocationCoordinate2D: Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(longitude, forKey: .longitude)
-        try container.encode(longitude, forKey: .latitude)
+        try container.encode(latitude, forKey: .latitude)
     }
 
     public init(from decoder: Decoder) throws {

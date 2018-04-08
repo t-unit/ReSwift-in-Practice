@@ -10,9 +10,18 @@ import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
 
-    if let placesAction = action as? PlacesAction, case .set(let places) = placesAction {
-        return AppState(places: places)
-    }
+    return AppState(
+        places: placesReducer(action: action, places: state?.places)
+    )
+}
 
-    return AppState(places: nil)
+private func placesReducer(action: Action, places: Loadable<[Place]>?) -> Loadable<[Place]> {
+
+    guard
+        let placesAction = action as? PlacesAction,
+        case .set(let state) = placesAction
+    else {
+        return places ?? .inital
+    }
+    return state
 }

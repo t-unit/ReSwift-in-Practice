@@ -27,15 +27,18 @@ private func fetchPlaces(action: Action, context: MiddlewareContext<AppState>, s
     let radius = 2000.0
 
     service.search(coordinates: fakeCoordinates, radius: radius) { result in
-        guard let places = result.value else {
-            return
-        }
 
         DispatchQueue.main.async {
-            let action = PlacesAction.set(places)
-            context.dispatch(action)
+            let state: Loadable<[Place]>
+
+            switch result {
+            case .failure(let error): state = .error(error)
+            case .success(let value): state = .value(value.results)
+            }
+
+            context.dispatch(PlacesAction.set(state))
         }
     }
 
-    return nil
+    return PlacesAction.set(.loading)
 }

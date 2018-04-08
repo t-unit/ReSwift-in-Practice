@@ -42,10 +42,21 @@ class MiddlewareTests: XCTestCase {
     }
 
 
-    func testReturnsNoAction() {
+    func testReturnsLoadAction() {
 
         let action = sut(PlacesAction.fetch, context)
-        expect(action).to(beNil())
+
+        if case .set(let loadable)? = (action as? PlacesAction) {
+
+            if case .loading = loadable {
+                // success
+            } else {
+                XCTFail("Expected .loading got \(loadable)")
+            }
+
+        } else {
+            XCTFail("Expected .set got \(action.debugDescription)")
+        }
     }
 
     func testSuppliesRadius() {
@@ -67,13 +78,5 @@ class MiddlewareTests: XCTestCase {
         _ = sut(PlacesAction.fetch, context)
 
         expect(self.dispatchedAction as? PlacesAction).toEventuallyNot(beNil())
-    }
-
-    func testIgnoresErrors() {
-
-        fakeService.result = .failure(NSError(domain: "", code: 0, userInfo: nil))
-        _ = sut(PlacesAction.fetch, context)
-
-        expect(self.dispatchedAction as? PlacesAction).toEventually(beNil())
     }
 }

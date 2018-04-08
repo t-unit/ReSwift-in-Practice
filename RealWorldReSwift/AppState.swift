@@ -10,5 +10,5 @@ import ReSwift
 
 struct AppState: StateType {
 
-    var places: PlacesSearchResult?
+    var places: Loadable<[Place]>
 }

@@ -11,6 +11,7 @@ import CoreLocation
 import ReSwift
 
 enum PlacesAction: Action {
+
     case fetch
-    case set(PlacesSearchResult)
+    case set(Loadable<[Place]>)
 }

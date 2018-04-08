@@ -46,7 +46,10 @@ extension ViewController: StoreSubscriber {
 
     func newState(state: AppState) {
 
-        data = state.places?.results ?? []
+        guard case .value(let places) = state.places else {
+            return // just ignoring error and initial to keep the UI simple
+        }
+        data = places
     }
 }
 
