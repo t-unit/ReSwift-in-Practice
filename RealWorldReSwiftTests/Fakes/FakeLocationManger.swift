@@ -15,4 +15,10 @@ class FakeLocationManager: LocationManager {
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
     var location: CLLocation? = nil
     var delegate: CLLocationManagerDelegate?
+
+    private(set) var requestWhenInUseAuthorizationCalled = false
+
+    func requestWhenInUseAuthorization() {
+        requestWhenInUseAuthorizationCalled = true
+    }
 }

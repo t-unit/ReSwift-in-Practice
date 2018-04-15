@@ -6,7 +6,6 @@
 //  Copyright © 2018 Tobias Ottenweller. All rights reserved.
 //
 
-
 import CoreLocation
 import ReSwift
 
@@ -52,19 +51,5 @@ extension LocationEmitter: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         dispatch(location: locations.last)
-    }
-}
-
-protocol LocationManager: class {
-
-    var authorizationStatus: CLAuthorizationStatus { get }
-    var location: CLLocation? { get }
-    var delegate: CLLocationManagerDelegate? { get set }
-}
-
-extension CLLocationManager: LocationManager {
-
-    var authorizationStatus: CLAuthorizationStatus {
-        return CLLocationManager.authorizationStatus()
     }
 }

@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     var store: AppStore!
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var authorizationNotDeterminedView: UIView!
+    @IBOutlet private var authorizationDeniedView: UIView!
 
     private var data: [Place] = [] {
         didSet {
@@ -38,6 +40,10 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         store.unsubscribe(self)
     }
+
+    @IBAction private func requestAuthorizationButtonTouchUpInside(_ sender: Any) {
+        store.dispatch(RequestAuthorizationAction())
+    }
 }
 
 extension ViewController: StoreSubscriber {
@@ -46,10 +52,12 @@ extension ViewController: StoreSubscriber {
 
     func newState(state: AppState) {
 
-        guard case .value(let places) = state.places else {
-            return // just ignoring error and initial to keep the UI simple
+        if case .value(let places) = state.places {
+            data = places
         }
-        data = places
+
+        authorizationNotDeterminedView.isHidden = state.authorizationStatus != .notDetermined
+        authorizationDeniedView.isHidden = (state.authorizationStatus == .authorizedAlways) || (state.authorizationStatus == .authorizedWhenInUse)
     }
 }
 
@@ -66,10 +74,22 @@ extension ViewController: UITableViewDataSource {
 
         cell.nameLabel.text = place.name
         cell.ratingLabel.text = place.rating.description
-        cell.priceLabel.text = place.priceLevel?.description ?? ""
+        cell.priceLabel.text = price(forLevel: place.priceLevel)
         cell.latLabel.text = place.geometry.coordinates.latitude.description
         cell.lonLabel.text = place.geometry.coordinates.longitude.description
 
         return cell
+    }
+
+    private func price(forLevel priceLevel: PriceLevel?) -> String {
+
+        switch priceLevel {
+        case .free?: return "free"
+        case .cheap?: return "cheap"
+        case .moderat?: return "moderat"
+        case .expensive?: return "expensive"
+        case .veryExpensive?: return "very expensive"
+        default: return ""
+        }
     }
 }

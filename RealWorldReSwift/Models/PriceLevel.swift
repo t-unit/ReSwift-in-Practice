@@ -16,16 +16,3 @@ enum PriceLevel: Int, Codable {
     case expensive = 3
     case veryExpensive = 4
 }
-
-extension PriceLevel: CustomStringConvertible {
-
-    var description: String {
-        switch self {
-        case .free: return "free"
-        case .cheap: return "cheap"
-        case .moderat: return "moderat"
-        case .expensive: return "expensive"
-        case .veryExpensive: return "very expensive"
-        }
-    }
-}

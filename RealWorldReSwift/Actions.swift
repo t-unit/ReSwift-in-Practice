@@ -25,3 +25,5 @@ struct SetAuthorizationStatusAction: Action {
 
     let authorizationStatus: CLAuthorizationStatus
 }
+
+struct RequestAuthorizationAction: Action { }

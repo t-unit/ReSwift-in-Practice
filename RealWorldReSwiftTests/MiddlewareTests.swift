@@ -13,9 +13,8 @@ import ReSwift
 
 @testable import RealWorldReSwift
 
-class MiddlewareTests: XCTestCase {
+class BaseMiddlewareTests: XCTestCase {
 
-    var fakeService: FakePlacesService!
     var context: MiddlewareContext<AppState>!
     var dispatchedAction: Action?
     var sut: SimpleMiddleware<AppState>!
@@ -23,24 +22,39 @@ class MiddlewareTests: XCTestCase {
     override func setUp() {
 
         super.setUp()
-        fakeService = FakePlacesService()
         context = MiddlewareContext(
             dispatch: { self.dispatchedAction = $0 },
             getState: { nil },
             next: { _ in }
         )
-        sut = fetchPlaces(service: fakeService)
     }
 
     override func tearDown() {
 
-        fakeService = nil
         context = nil
         dispatchedAction = nil
         sut = nil
         super.tearDown()
     }
 
+}
+
+class FetchPlacesMiddlewareTests: BaseMiddlewareTests {
+
+    var fakeService: FakePlacesService!
+
+    override func setUp() {
+
+        super.setUp()
+        fakeService = FakePlacesService()
+        sut = fetchPlaces(service: fakeService)
+    }
+
+    override func tearDown() {
+
+        fakeService = nil
+        super.tearDown()
+    }
 
     func testReturnsLoadAction() {
 
@@ -79,4 +93,35 @@ class MiddlewareTests: XCTestCase {
 
         expect(self.dispatchedAction as? PlacesAction).toEventuallyNot(beNil())
     }
+}
+
+class RequestAuthorization: BaseMiddlewareTests {
+
+    var locationManager: FakeLocationManager!
+
+    override func setUp() {
+
+        super.setUp()
+        locationManager = FakeLocationManager()
+        sut = requestAuthorization(locationManager: locationManager)
+    }
+
+    override func tearDown() {
+
+        locationManager = nil
+        super.tearDown()
+    }
+
+    func testReturnsNil() {
+
+        let action = sut(RequestAuthorizationAction(), context)
+        expect(action).to(beNil())
+    }
+
+    func testRequestsAuthorization() {
+
+        _ = sut(RequestAuthorizationAction(), context)
+        expect(self.locationManager.requestWhenInUseAuthorizationCalled) == true
+    }
+
 }

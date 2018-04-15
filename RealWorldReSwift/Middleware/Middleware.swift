@@ -9,9 +9,14 @@
 import ReSwift
 import CoreLocation
 
-func fetchPlaces(service: PlacesServing) -> SimpleMiddleware<AppState> {
+typealias Middleware = SimpleMiddleware<AppState>
 
+func fetchPlaces(service: PlacesServing) -> Middleware {
     return { fetchPlaces(action: $0, context: $1, service: service) }
+}
+
+func requestAuthorization(locationManager: LocationManager) -> Middleware {
+    return { requestAuthorization(action: $0, context: $1, locationManager: locationManager) }
 }
 
 private func fetchPlaces(action: Action, context: MiddlewareContext<AppState>, service: PlacesServing) -> Action? {
@@ -41,4 +46,14 @@ private func fetchPlaces(action: Action, context: MiddlewareContext<AppState>, s
     }
 
     return PlacesAction.set(.loading)
+}
+
+private func requestAuthorization(action: Action, context: MiddlewareContext<AppState>, locationManager: LocationManager) -> Action? {
+
+    guard action is RequestAuthorizationAction else {
+        return action
+    }
+
+    locationManager.requestWhenInUseAuthorization()
+    return nil
 }

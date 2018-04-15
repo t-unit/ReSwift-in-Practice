@@ -45,7 +45,7 @@ struct MiddlewareContext<State: StateType> {
 }
 
 /// Creates a middlewar function using SimpleMiddleware to create a ReSwift Middleware function.
-func createMiddleware<State: StateType>(_ middleware: @escaping SimpleMiddleware<State>) -> Middleware<State> {
+func createMiddleware<State: StateType>(_ middleware: @escaping SimpleMiddleware<State>) -> ReSwift.Middleware<State> {
 
     return { dispatch, getState in
         return { next in

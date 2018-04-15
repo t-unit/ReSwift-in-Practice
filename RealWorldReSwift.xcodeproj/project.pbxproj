@@ -45,6 +45,7 @@
 		D2FFDF97208388EE00A4E27C /* LocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF96208388EE00A4E27C /* LocationEmitter.swift */; };
 		D2FFDF99208392BF00A4E27C /* LocationEmitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF98208392BF00A4E27C /* LocationEmitterTests.swift */; };
 		D2FFDF9F2083945900A4E27C /* FakeLocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF9E2083945900A4E27C /* FakeLocationManger.swift */; };
+		D2FFDFA12083A68900A4E27C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDFA02083A68900A4E27C /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,7 @@
 		D2FFDF96208388EE00A4E27C /* LocationEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEmitter.swift; sourceTree = "<group>"; };
 		D2FFDF98208392BF00A4E27C /* LocationEmitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEmitterTests.swift; sourceTree = "<group>"; };
 		D2FFDF9E2083945900A4E27C /* FakeLocationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLocationManger.swift; sourceTree = "<group>"; };
+		D2FFDFA02083A68900A4E27C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				D287BA9F2067EFF700E79715 /* Assets.xcassets */,
 				D2FFDF952083889600A4E27C /* Emitters */,
 				D287BAA42067EFF700E79715 /* Info.plist */,
+				D2FFDFA02083A68900A4E27C /* LocationManager.swift */,
 				D2FFDF942083849400A4E27C /* Middleware */,
 				D287BAE02067F2E500E79715 /* Models */,
 				D287BAD82067F1D600E79715 /* Networking */,
@@ -649,6 +652,7 @@
 				D2562EE1206E699600A54E13 /* AppState.swift in Sources */,
 				D229798820710C3100026385 /* SimpleMiddleware.swift in Sources */,
 				D287BAF42067F3CE00E79715 /* Place.swift in Sources */,
+				D2FFDFA12083A68900A4E27C /* LocationManager.swift in Sources */,
 				D273611E207A61A800172F14 /* Loadable.swift in Sources */,
 				D287BADC2067F1E400E79715 /* Result.swift in Sources */,
 				D2562EF4206E7B2400A54E13 /* Actions.swift in Sources */,

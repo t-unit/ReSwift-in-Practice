@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     override init() {
 
+        let locationManager = CLLocationManager()
+
         placesService = PlacesService(
             locale: .current,
             apiKey: "<key here>",
@@ -31,11 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             reducer: appReducer,
             state: nil,
             middleware: [
-                createMiddleware(fetchPlaces(service: placesService))
+                createMiddleware(fetchPlaces(service: placesService)),
+                createMiddleware(requestAuthorization(locationManager: locationManager))
             ]
         )
 
-        locationEmitter = LocationEmitter(locationManager: CLLocationManager(), store: appStore)
+        locationEmitter = LocationEmitter(locationManager: locationManager, store: appStore)
 
         super.init()
     }
