@@ -6,9 +6,12 @@
 //  Copyright © 2018 Tobias Ottenweller. All rights reserved.
 //
 
+import CoreLocation
 import ReSwift
 
 struct AppState: StateType {
 
-    var places: Loadable<[Place]>
+    let places: Loadable<[Place]>
+    let lastKnownLocation: CLLocation?
+    let authorizationStatus: CLAuthorizationStatus
 }

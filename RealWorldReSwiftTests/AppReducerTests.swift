@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tobias Ottenweller. All rights reserved.
 //
 
+import CoreLocation
 import XCTest
 import ReSwift
 import Nimble
@@ -13,9 +14,10 @@ import Nimble
 @testable
 import RealWorldReSwift
 
-class AppReducerTests: XCTestCase {
+// MARK: - places
+class AppReducerPlacesTests: XCTestCase {
     
-    func testSetsIntialPlace() {
+    func testSetsIntial() {
 
         let state = appReducer(action: FakeAction(), state: nil)
 
@@ -47,6 +49,41 @@ class AppReducerTests: XCTestCase {
         } else {
             XCTFail("Expected .error got \(state.places)")
         }
+    }
+}
+
+// MARK: - last known location
+class AppReducerLastKnownLocationTests: XCTestCase {
+
+    func testKeepsNil() {
+
+        let state = appReducer(action: FakeAction(), state: nil)
+        expect(state.lastKnownLocation).to(beNil())
+    }
+
+    func testUpdates() {
+
+        let location = CLLocation(latitude: 23, longitude: -23)
+        let state = appReducer(action: SetLocationAction(location: location), state: nil)
+
+        expect(state.lastKnownLocation) == location
+    }
+}
+
+// MARK: - authorizationStatus
+class AppReducerAuthorizationStatusTests: XCTestCase {
+
+    func testSetsInitialValue() {
+
+        let state = appReducer(action: FakeAction(), state: nil)
+        expect(state.authorizationStatus) == .notDetermined
+    }
+
+    func testUpdates() {
+
+        let status: CLAuthorizationStatus = .authorizedAlways
+        let state = appReducer(action: SetAuthorizationStatusAction(authorizationStatus: status), state: nil)
+        expect(state.authorizationStatus) == status
     }
 }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tobias Ottenweller. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 import ReSwift
 
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private let placesService: PlacesServing
     private let appStore: AppStore
+    private let locationEmitter: LocationEmitter
 
     override init() {
 
@@ -32,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 createMiddleware(fetchPlaces(service: placesService))
             ]
         )
+
+        locationEmitter = LocationEmitter(locationManager: CLLocationManager(), store: appStore)
 
         super.init()
     }

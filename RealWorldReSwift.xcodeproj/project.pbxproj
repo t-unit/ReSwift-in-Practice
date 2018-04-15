@@ -42,6 +42,9 @@
 		D287BB1D2067F8E600E79715 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB1C2067F8E600E79715 /* MockURLSession.swift */; };
 		D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */; };
 		D287BB2120681B7500E79715 /* FakeNetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */; };
+		D2FFDF97208388EE00A4E27C /* LocationEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF96208388EE00A4E27C /* LocationEmitter.swift */; };
+		D2FFDF99208392BF00A4E27C /* LocationEmitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF98208392BF00A4E27C /* LocationEmitterTests.swift */; };
+		D2FFDF9F2083945900A4E27C /* FakeLocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFDF9E2083945900A4E27C /* FakeLocationManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +232,9 @@
 		D287BB1C2067F8E600E79715 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		D287BB1E2068001A00E79715 /* PlacesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesServiceTests.swift; sourceTree = "<group>"; };
 		D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkFetcher.swift; sourceTree = "<group>"; };
+		D2FFDF96208388EE00A4E27C /* LocationEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEmitter.swift; sourceTree = "<group>"; };
+		D2FFDF98208392BF00A4E27C /* LocationEmitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEmitterTests.swift; sourceTree = "<group>"; };
+		D2FFDF9E2083945900A4E27C /* FakeLocationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLocationManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +288,7 @@
 				D2562EE0206E699600A54E13 /* AppState.swift */,
 				D2562EEF206E6A2F00A54E13 /* AppStore.swift */,
 				D287BA9F2067EFF700E79715 /* Assets.xcassets */,
+				D2FFDF952083889600A4E27C /* Emitters */,
 				D287BAA42067EFF700E79715 /* Info.plist */,
 				D2FFDF942083849400A4E27C /* Middleware */,
 				D287BAE02067F2E500E79715 /* Models */,
@@ -298,6 +305,7 @@
 				D2736121207A652700172F14 /* CLLocationCoordinate2DTests.swift */,
 				D287BB1A2067F8C000E79715 /* Fakes */,
 				D287BAAF2067EFF700E79715 /* Info.plist */,
+				D2FFDF98208392BF00A4E27C /* LocationEmitterTests.swift */,
 				D273610C207A44BF00172F14 /* MiddlewareTests.swift */,
 				D287BB1B2067F8DA00E79715 /* Mocks */,
 				D287BB182067F83E00E79715 /* NetworkFetcherTests.swift */,
@@ -368,6 +376,7 @@
 		D287BB1A2067F8C000E79715 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
+				D2FFDF9E2083945900A4E27C /* FakeLocationManger.swift */,
 				D287BB2020681B7500E79715 /* FakeNetworkFetcher.swift */,
 				D273611B207A467B00172F14 /* FakePlacesService.swift */,
 			);
@@ -400,6 +409,14 @@
 				D229798720710C3100026385 /* SimpleMiddleware.swift */,
 			);
 			path = Middleware;
+			sourceTree = "<group>";
+		};
+		D2FFDF952083889600A4E27C /* Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFDF96208388EE00A4E27C /* LocationEmitter.swift */,
+			);
+			path = Emitters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,6 +643,7 @@
 				D2562EF0206E6A2F00A54E13 /* AppStore.swift in Sources */,
 				D287BA9B2067EFF500E79715 /* ViewController.swift in Sources */,
 				D287BADF2067F27300E79715 /* PlacesService.swift in Sources */,
+				D2FFDF97208388EE00A4E27C /* LocationEmitter.swift in Sources */,
 				D287BADB2067F1E400E79715 /* NetworkFetcher.swift in Sources */,
 				D2562EF2206E6A4600A54E13 /* AppReducer.swift in Sources */,
 				D2562EE1206E699600A54E13 /* AppState.swift in Sources */,
@@ -652,8 +670,10 @@
 				D287BB1F2068001A00E79715 /* PlacesServiceTests.swift in Sources */,
 				D273610D207A44BF00172F14 /* MiddlewareTests.swift in Sources */,
 				D229799720710D5700026385 /* SimpleMiddlewareTests.swift in Sources */,
+				D2FFDF9F2083945900A4E27C /* FakeLocationManger.swift in Sources */,
 				D287BB192067F83E00E79715 /* NetworkFetcherTests.swift in Sources */,
 				D2736122207A652700172F14 /* CLLocationCoordinate2DTests.swift in Sources */,
+				D2FFDF99208392BF00A4E27C /* LocationEmitterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

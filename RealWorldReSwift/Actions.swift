@@ -15,3 +15,13 @@ enum PlacesAction: Action {
     case fetch
     case set(Loadable<[Place]>)
 }
+
+struct SetLocationAction: Action {
+
+    let location: CLLocation
+}
+
+struct SetAuthorizationStatusAction: Action {
+
+    let authorizationStatus: CLAuthorizationStatus
+}
