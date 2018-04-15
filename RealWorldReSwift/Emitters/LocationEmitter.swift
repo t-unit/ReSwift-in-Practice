@@ -12,10 +12,10 @@ import ReSwift
 
 final class LocationEmitter: NSObject {
     
-    private let locationManager: LocationManger
+    private let locationManager: LocationManager
     private let store: AppStore
     
-    init(locationManager: LocationManger, store: AppStore) {
+    init(locationManager: LocationManager, store: AppStore) {
         
         self.locationManager = locationManager
         self.store = store
@@ -55,14 +55,14 @@ extension LocationEmitter: CLLocationManagerDelegate {
     }
 }
 
-protocol LocationManger: class {
+protocol LocationManager: class {
 
     var authorizationStatus: CLAuthorizationStatus { get }
     var location: CLLocation? { get }
     var delegate: CLLocationManagerDelegate? { get set }
 }
 
-extension CLLocationManager: LocationManger {
+extension CLLocationManager: LocationManager {
 
     var authorizationStatus: CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()

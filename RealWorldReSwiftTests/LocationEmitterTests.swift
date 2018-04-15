@@ -15,7 +15,7 @@ import ReSwift
 
 class LocationEmitterTests: XCTestCase {
 
-    var locationManager: FakeLocationManger!
+    var locationManager: FakeLocationManager!
     var store: AppStore!
     var actions: [Action]! = []
     var sut: LocationEmitter!
@@ -25,7 +25,7 @@ class LocationEmitterTests: XCTestCase {
     override func setUp() {
 
         super.setUp()
-        locationManager = FakeLocationManger()
+        locationManager = FakeLocationManager()
         locationManager.location = inital
         locationManager.authorizationStatus = .restricted
         store = AppStore(reducer: reducer, state: nil)
