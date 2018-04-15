@@ -283,15 +283,10 @@
 				D2562EEF206E6A2F00A54E13 /* AppStore.swift */,
 				D287BA9F2067EFF700E79715 /* Assets.xcassets */,
 				D287BAA42067EFF700E79715 /* Info.plist */,
-				D287BAA12067EFF700E79715 /* LaunchScreen.storyboard */,
-				D273611D207A61A800172F14 /* Loadable.swift */,
-				D287BA9C2067EFF500E79715 /* Main.storyboard */,
-				D22979982071156600026385 /* Middleware.swift */,
+				D2FFDF942083849400A4E27C /* Middleware */,
 				D287BAE02067F2E500E79715 /* Models */,
 				D287BAD82067F1D600E79715 /* Networking */,
-				D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */,
-				D229798720710C3100026385 /* SimpleMiddleware.swift */,
-				D287BA9A2067EFF500E79715 /* ViewController.swift */,
+				D2FFDF862083848A00A4E27C /* Views */,
 			);
 			path = RealWorldReSwift;
 			sourceTree = "<group>";
@@ -342,6 +337,7 @@
 			children = (
 				D287BAF12067F3CE00E79715 /* CLLocationCoordinate2D+Codable.swift */,
 				D287BAF22067F3CE00E79715 /* Geometry.swift */,
+				D273611D207A61A800172F14 /* Loadable.swift */,
 				D287BAEE2067F3CE00E79715 /* Place.swift */,
 				D287BAF02067F3CE00E79715 /* PlacesSearchResult.swift */,
 				D287BAEF2067F3CE00E79715 /* PriceLevel.swift */,
@@ -384,6 +380,26 @@
 				D287BB1C2067F8E600E79715 /* MockURLSession.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		D2FFDF862083848A00A4E27C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D287BAA12067EFF700E79715 /* LaunchScreen.storyboard */,
+				D287BA9C2067EFF500E79715 /* Main.storyboard */,
+				D2562EF5206E847B00A54E13 /* PlaceTableViewCell.swift */,
+				D287BA9A2067EFF500E79715 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D2FFDF942083849400A4E27C /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				D22979982071156600026385 /* Middleware.swift */,
+				D229798720710C3100026385 /* SimpleMiddleware.swift */,
+			);
+			path = Middleware;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
