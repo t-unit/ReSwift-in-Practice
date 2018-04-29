@@ -8,7 +8,7 @@
 
 enum Loadable<T> {
 
-    case inital
+    case initial
     case loading
     case value(T)
     case error(Error)

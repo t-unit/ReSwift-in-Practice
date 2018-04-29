@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let placesService: PlacesServing
     private let appStore: AppStore
     private let locationEmitter: LocationEmitter
+    private let locationObserver: LocationObserver
 
     override init() {
 
@@ -34,11 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             state: nil,
             middleware: [
                 createMiddleware(fetchPlaces(service: placesService)),
-                createMiddleware(requestAuthorization(locationManager: locationManager))
+                createMiddleware(requestAuthorization(locationManager: locationManager)),
+                createMiddleware(startMonitoring(locationManager: locationManager))
             ]
         )
 
         locationEmitter = LocationEmitter(locationManager: locationManager, store: appStore)
+        locationObserver = LocationObserver(store: appStore)
 
         super.init()
     }
@@ -49,5 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController.store = appStore
 
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        appStore.dispatch(ApplicationDidBecomeActiveAction())
     }
 }

@@ -17,19 +17,19 @@ class LocationEmitterTests: XCTestCase {
 
     var locationManager: FakeLocationManager!
     var store: AppStore!
-    var actions: [Action]! = []
+    var reducer: FakeReducer!
     var sut: LocationEmitter!
 
-    let inital = CLLocation(latitude: 0, longitude: 0)
+    let initial = CLLocation(latitude: 0, longitude: 0)
 
     override func setUp() {
 
         super.setUp()
         locationManager = FakeLocationManager()
-        locationManager.location = inital
+        locationManager.location = initial
         locationManager.authorizationStatus = .restricted
-        store = AppStore(reducer: reducer, state: nil)
-        actions = []
+        reducer = FakeReducer()
+        store = AppStore(reducer: reducer.reduce, state: nil)
         sut = LocationEmitter(locationManager: locationManager, store: store)
     }
 
@@ -38,7 +38,7 @@ class LocationEmitterTests: XCTestCase {
         locationManager = nil
         store = nil
         sut = nil
-        actions = nil
+        reducer = nil
         super.tearDown()
     }
 
@@ -48,7 +48,7 @@ class LocationEmitterTests: XCTestCase {
 
     func testDispatchesInitialAuthorizationEvent() {
 
-        let action = actions.first(where: { $0 is SetAuthorizationStatusAction }) as? SetAuthorizationStatusAction
+        let action = reducer.actions.first(where: { $0 is SetAuthorizationStatusAction }) as? SetAuthorizationStatusAction
         expect(action?.authorizationStatus) == .restricted
     }
 
@@ -56,14 +56,14 @@ class LocationEmitterTests: XCTestCase {
 
         sut.locationManager(CLLocationManager(), didChangeAuthorization: .authorizedWhenInUse)
 
-        let action = actions.last as? SetAuthorizationStatusAction
+        let action = reducer.actions.last as? SetAuthorizationStatusAction
         expect(action?.authorizationStatus) == .authorizedWhenInUse
     }
 
     func testDispatchesInitialLocationEvent() {
 
-        let action = actions.first(where: { $0 is SetLocationAction }) as? SetLocationAction
-        expect(action?.location) == inital
+        let action = reducer.actions.first(where: { $0 is SetLocationAction }) as? SetLocationAction
+        expect(action?.location) == initial
     }
 
     func testDispatchesLocationEvent() {
@@ -71,17 +71,7 @@ class LocationEmitterTests: XCTestCase {
         let location = CLLocation(latitude: 50, longitude: 50)
         sut.locationManager(CLLocationManager(), didUpdateLocations: [location])
 
-        let action = actions.last as? SetLocationAction
+        let action = reducer.actions.last as? SetLocationAction
         expect(action?.location) == location
-    }
-
-    private func reducer(action: Action, state: AppState?) -> AppState {
-
-        actions.append(action)
-        return AppState(
-            places: .inital,
-            lastKnownLocation: nil,
-            authorizationStatus: .authorizedWhenInUse
-        )
     }
 }

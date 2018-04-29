@@ -15,6 +15,8 @@ protocol LocationManager: class {
     var delegate: CLLocationManagerDelegate? { get set }
 
     func requestWhenInUseAuthorization()
+    func startMonitoringSignificantLocationChanges()
+    func requestLocation()
 }
 
 extension CLLocationManager: LocationManager {

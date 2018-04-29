@@ -24,7 +24,7 @@ private func placesReducer(action: Action, places: Loadable<[Place]>?) -> Loadab
         let placesAction = action as? PlacesAction,
         case .set(let state) = placesAction
     else {
-        return places ?? .inital
+        return places ?? .initial
     }
     return state
 }

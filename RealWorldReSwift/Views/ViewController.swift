@@ -29,12 +29,6 @@ class ViewController: UIViewController {
         store.subscribe(self)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-
-        super.viewDidAppear(animated)
-        store.dispatch(PlacesAction.fetch)
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
 
         super.viewWillDisappear(animated)
@@ -57,7 +51,7 @@ extension ViewController: StoreSubscriber {
         }
 
         authorizationNotDeterminedView.isHidden = state.authorizationStatus != .notDetermined
-        authorizationDeniedView.isHidden = (state.authorizationStatus == .authorizedAlways) || (state.authorizationStatus == .authorizedWhenInUse)
+        authorizationDeniedView.isHidden = state.authorizationStatus.isAuthorized
     }
 }
 
@@ -75,8 +69,8 @@ extension ViewController: UITableViewDataSource {
         cell.nameLabel.text = place.name
         cell.ratingLabel.text = place.rating.description
         cell.priceLabel.text = price(forLevel: place.priceLevel)
-        cell.latLabel.text = place.geometry.coordinates.latitude.description
-        cell.lonLabel.text = place.geometry.coordinates.longitude.description
+        cell.latLabel.text = place.geometry.coordinate.latitude.description
+        cell.lonLabel.text = place.geometry.coordinate.longitude.description
 
         return cell
     }

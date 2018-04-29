@@ -21,10 +21,10 @@ class AppReducerPlacesTests: XCTestCase {
 
         let state = appReducer(action: FakeAction(), state: nil)
 
-        if case .inital = state.places {
+        if case .initial = state.places {
             // success
         } else {
-            XCTFail("Expected .inital got \(state.places)")
+            XCTFail("Expected .initial got \(state.places)")
         }
     }
 
@@ -86,5 +86,3 @@ class AppReducerAuthorizationStatusTests: XCTestCase {
         expect(state.authorizationStatus) == status
     }
 }
-
-private struct FakeAction: Action { }

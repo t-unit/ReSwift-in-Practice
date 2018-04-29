@@ -14,13 +14,13 @@ import RealWorldReSwift
 class FakePlacesService: PlacesServing {
 
     private(set) var receivedRadius: Double?
-    private(set) var reveivedCoordinates: CLLocationCoordinate2D?
+    private(set) var reveivedCoordinate: CLLocationCoordinate2D?
 
     var result: Result<PlacesSearchResult>?
 
-    func search(coordinates: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void) {
+    func search(coordinate: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void) {
 
-        reveivedCoordinates = coordinates
+        reveivedCoordinate = coordinate
         receivedRadius = radius
 
         if let result = result {

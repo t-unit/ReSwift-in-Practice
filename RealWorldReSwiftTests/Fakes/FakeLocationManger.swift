@@ -17,8 +17,18 @@ class FakeLocationManager: LocationManager {
     var delegate: CLLocationManagerDelegate?
 
     private(set) var requestWhenInUseAuthorizationCalled = false
+    private(set) var startMonitoringSignificantLocationChangesCalled = false
+    private(set) var requestLocationCalled = false
 
     func requestWhenInUseAuthorization() {
         requestWhenInUseAuthorizationCalled = true
+    }
+
+    func startMonitoringSignificantLocationChanges() {
+        startMonitoringSignificantLocationChangesCalled = true
+    }
+
+    func requestLocation() {
+        requestLocationCalled = true
     }
 }

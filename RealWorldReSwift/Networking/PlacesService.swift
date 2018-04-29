@@ -12,7 +12,7 @@ import CoreLocation
 
 protocol PlacesServing {
 
-    func search(coordinates: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void)
+    func search(coordinate: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void)
 }
 
 struct PlacesService: PlacesServing {
@@ -21,11 +21,11 @@ struct PlacesService: PlacesServing {
     let apiKey: String
     let fetcher: NetworkFetching
 
-    func search(coordinates: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void) {
+    func search(coordinate: CLLocationCoordinate2D, radius: Double, completion: @escaping (Result<PlacesSearchResult>) -> Void) {
 
         do {
             let request = try RequestBuilder.build(
-                forCoordinates: coordinates,
+                forCoordinates: coordinate,
                 radius: radius,
                 locale: locale,
                 apiKey: apiKey
@@ -56,7 +56,7 @@ private struct RequestBuilder {
 
     static let baseUrlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
-    static func build(forCoordinates coordinates: CLLocationCoordinate2D, radius: Double, locale: Locale, apiKey: String) throws -> URLRequest {
+    static func build(forCoordinates coordinate: CLLocationCoordinate2D, radius: Double, locale: Locale, apiKey: String) throws -> URLRequest {
 
         guard var components = URLComponents(string: baseUrlString) else {
             throw NetworkFetcherError.url
@@ -64,7 +64,7 @@ private struct RequestBuilder {
 
         components.queryItems = [
             URLQueryItem(name: "key", value: apiKey),
-            URLQueryItem(name: "location", value: "\(coordinates.latitude),\(coordinates.longitude)"),
+            URLQueryItem(name: "location", value: "\(coordinate.latitude),\(coordinate.longitude)"),
             URLQueryItem(name: "radius", value: "\(radius)"),
             URLQueryItem(name: "language", value: locale.languageCode),
             URLQueryItem(name: "opennow", value: "1"),

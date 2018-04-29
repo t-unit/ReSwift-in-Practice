@@ -14,7 +14,7 @@ import CoreLocation
 
 class PlacesServiceTests: XCTestCase {
 
-    let coordinates = CLLocationCoordinate2D(latitude: 50.44, longitude: 10.123)
+    let coordinate = CLLocationCoordinate2D(latitude: 50.44, longitude: 10.123)
 
     var sut: PlacesService!
     var fakeNetworkFetcher: FakeNetworkFetcher<PlacesSearchResult>!
@@ -30,7 +30,7 @@ class PlacesServiceTests: XCTestCase {
         )
 
         sut.search(
-            coordinates: coordinates,
+            coordinate: coordinate,
             radius: 200,
             completion: { _ in }
         )
@@ -77,7 +77,7 @@ class PlacesServiceTests: XCTestCase {
         fakeNetworkFetcher.result = .failure(error)
         var result: Result<PlacesSearchResult>?
 
-        sut.search(coordinates: coordinates, radius: 0) {
+        sut.search(coordinate: coordinate, radius: 0) {
             result = $0
         }
 
@@ -96,7 +96,7 @@ class PlacesServiceTests: XCTestCase {
         fakeNetworkFetcher.result = .success(value)
         var result: Result<PlacesSearchResult>?
 
-        sut.search(coordinates: coordinates, radius: 0) {
+        sut.search(coordinate: coordinate, radius: 0) {
             result = $0
         }
 
@@ -115,7 +115,7 @@ class PlacesServiceTests: XCTestCase {
         fakeNetworkFetcher.result = .success(value)
         var result: Result<PlacesSearchResult>?
 
-        sut.search(coordinates: coordinates, radius: 0) {
+        sut.search(coordinate: coordinate, radius: 0) {
             result = $0
         }
 

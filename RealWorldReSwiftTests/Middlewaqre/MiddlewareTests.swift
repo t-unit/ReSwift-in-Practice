@@ -15,16 +15,26 @@ import ReSwift
 
 class BaseMiddlewareTests: XCTestCase {
 
+    let location = CLLocation(latitude: 52.520008, longitude: 13.404954)
+
     var context: MiddlewareContext<AppState>!
+    var state: AppState!
     var dispatchedAction: Action?
     var sut: SimpleMiddleware<AppState>!
 
     override func setUp() {
 
         super.setUp()
+
+        state = AppState(
+            places: .initial,
+            lastKnownLocation: location,
+            authorizationStatus: .notDetermined
+        )
+
         context = MiddlewareContext(
             dispatch: { self.dispatchedAction = $0 },
-            getState: { nil },
+            getState: { self.state },
             next: { _ in }
         )
     }
@@ -82,8 +92,8 @@ class FetchPlacesMiddlewareTests: BaseMiddlewareTests {
     func testSuppliesCoordinates() {
 
         _ = sut(PlacesAction.fetch, context)
-        expect(self.fakeService.reveivedCoordinates?.latitude) == 52.520008
-        expect(self.fakeService.reveivedCoordinates?.longitude) == 13.404954
+        expect(self.fakeService.reveivedCoordinate?.latitude) == location.coordinate.latitude
+        expect(self.fakeService.reveivedCoordinate?.longitude) == location.coordinate.longitude
     }
 
     func testDispatchesPlaces() {
@@ -95,7 +105,7 @@ class FetchPlacesMiddlewareTests: BaseMiddlewareTests {
     }
 }
 
-class RequestAuthorization: BaseMiddlewareTests {
+class RequestAuthorizationTests: BaseMiddlewareTests {
 
     var locationManager: FakeLocationManager!
 
@@ -112,16 +122,57 @@ class RequestAuthorization: BaseMiddlewareTests {
         super.tearDown()
     }
 
-    func testReturnsNil() {
-
-        let action = sut(RequestAuthorizationAction(), context)
-        expect(action).to(beNil())
-    }
-
     func testRequestsAuthorization() {
 
         _ = sut(RequestAuthorizationAction(), context)
         expect(self.locationManager.requestWhenInUseAuthorizationCalled) == true
     }
+}
 
+class StartMonitoringTests: BaseMiddlewareTests {
+
+    var locationManager: FakeLocationManager!
+
+    override func setUp() {
+
+        super.setUp()
+        locationManager = FakeLocationManager()
+        sut = startMonitoring(locationManager: locationManager)
+    }
+
+    override func tearDown() {
+
+        locationManager = nil
+        super.tearDown()
+    }
+
+    func testStartsMonitoringDidBecomeActive() {
+
+        state = AppState(
+            places: .initial,
+            lastKnownLocation: location,
+            authorizationStatus: .authorizedAlways
+        )
+
+        _ = sut(ApplicationDidBecomeActiveAction(), context)
+        expect(self.locationManager.startMonitoringSignificantLocationChangesCalled) == true
+    }
+
+    func testStartsMonitoringSetAuthorizationStatus() {
+
+        _ = sut(SetAuthorizationStatusAction(authorizationStatus: .authorizedAlways), context)
+        expect(self.locationManager.startMonitoringSignificantLocationChangesCalled) == true
+    }
+
+    func testDoesNothingOnDidBecomeActiveForInvalidSetAuthorizationStatus() {
+
+        _ = sut(ApplicationDidBecomeActiveAction(), context)
+        expect(self.locationManager.startMonitoringSignificantLocationChangesCalled) == false
+    }
+
+    func testDoesNothingForInvalidSetAuthorizationStatus() {
+
+        _ = sut(SetAuthorizationStatusAction(authorizationStatus: .denied), context)
+        expect(self.locationManager.startMonitoringSignificantLocationChangesCalled) == false
+    }
 }

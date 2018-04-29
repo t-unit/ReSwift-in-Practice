@@ -27,3 +27,5 @@ struct SetAuthorizationStatusAction: Action {
 }
 
 struct RequestAuthorizationAction: Action { }
+
+struct ApplicationDidBecomeActiveAction: Action { }

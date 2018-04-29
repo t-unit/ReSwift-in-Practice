@@ -12,8 +12,8 @@ struct Geometry: Codable {
 
     enum CodingKeys: String, CodingKey {
 
-        case coordinates = "location"
+        case coordinate = "location"
     }
 
-    let coordinates: CLLocationCoordinate2D
+    let coordinate: CLLocationCoordinate2D
 }
