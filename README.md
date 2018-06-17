@@ -1,4 +1,4 @@
-# ReSwift-in-Practice
+# ReSwift in Practice
 
 Read the article about this project at [medium](https://medium.com/@tobi_86596/reswift-in-practice-1512e0f59eb5).
 
